@@ -16,15 +16,8 @@ function addTask() {
     let li = document.createElement("li");
     li.textContent = taskText;
     let removeButton = document.createElement("button");
-    //style remove button
-    removeButton.classList.add = "remove-btn";
+    removeButton.classList.add("remove-btn");
     removeButton.textContent = "remove";
-    removeButton.style.backgroundColor = "red";
-    removeButton.style.color = "white";
-    removeButton.style.borderRadius = "4px";
-    removeButton.style.padding = "4px";
-    removeButton.style.border = "none";
-    removeButton.style.color = "white";
 
     removeButton.onclick = function () {
       li.remove();
