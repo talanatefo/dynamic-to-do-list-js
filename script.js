@@ -8,7 +8,7 @@ const taskList = document.getElementById("task-list");
 function addTask() {
   const taskInput = document.getElementById("task-input");
   let taskText = taskInput.value;
-  if (taskText.length <= 1) {
+  if (taskText == "") {
     alert("Please enter a task");
   }
   //Task Creation and Removal:
