@@ -4,23 +4,33 @@ document.addEventListener("DOMContentLoaded", () =>
     const addButton = document.getElementById("add-task-btn");
     const taskInput = document.getElementById("task-input");
     const taskList = document.getElementById("task-list");
-    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-    /**if (tasks) {
-    tasks.forEach((task) => {
-      let li = document.createElement("li");
-      li.textContent = taskText;
-      let removeButton = document.createElement("button");
-      removeButton.classList.add("remove-btn");
-      removeButton.textContent = "Remove";
+    let tasks = [];
+    console.log(tasks);
+    let fetchedData = localStorage.getItem("tasks");
+    // console.log(fetchedData);
+    if (fetchedData !== null) {
+      //convert from JSON to list
+      let fetchedTasks = JSON.parse(fetchedData);
+      //fill the array with fetched tasks
+      tasks.push(...fetchedTasks);
+    }
+    //output all the tasks
+    if (tasks) {
+      tasks.forEach((task) => {
+        let li = document.createElement("li");
+        li.textContent = task;
+        let removeButton = document.createElement("button");
+        removeButton.classList.add("remove-btn");
+        removeButton.textContent = "Remove";
 
-      removeButton.onclick = function () {
-        li.remove();
-      };
-      li.appendChild(removeButton);
-      taskList.appendChild(li);
-    });
-  } **/
+        removeButton.onclick = function () {
+          li.remove();
+        };
+        li.appendChild(removeButton);
+        taskList.appendChild(li);
+      });
+    }
 
     //Create the addTask Function:
     function addTask() {
